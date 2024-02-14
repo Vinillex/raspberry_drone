@@ -36,12 +36,13 @@ class MPU:
         accRaw = mpu.get_accel_data()
         gyrRaw = mpu.get_gyro_data()
         inv = INV(
-        acc_x = accRaw['x'],
-        acc_y = accRaw['y'],
-        acc_z = accRaw['z'],
-        gyr_x = gyrRaw['x'],
-        gyr_y = gyrRaw['y'],
-        gyr_z = gyrRaw['z'],
+        acc_x = (accRaw['x'] * acc_x_multiplier) + acc_x_offset,
+        acc_y = (accRaw['y'] * acc_y_multiplier) + acc_y_offset,
+        acc_z = (accRaw['z'] *  acc_z_multiplier) + acc_z_offset,
+        #Gyroscope data is not callibrated as it's more precise and doesn't drift much
+        gyr_x = gyrRaw['x'] + gyr_x_offset,
+        gyr_y = gyrRaw['y'] + gyr_y_offset,
+        gyr_z = gyrRaw['z'] + gyr_z_offset,
         )
         return inv
 
