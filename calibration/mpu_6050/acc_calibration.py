@@ -20,11 +20,17 @@ var = input(f'\nTo register the value, press "Y" and any other key to stop calib
 if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
+
+for i in range(50):
+    
+
 acc_z_p = MPU.getRawValues().acc_z
-gyr_z_p = MPU.getRawValues().gyr_z
+
+acc_x_z_p = MPU.getRawValues().acc_x
+acc_y_z_p = MPU.getRawValues().acc_y
+
 print(f"\n----------------------------------------------------------------------------")
 print(f"\nAcceleration in Z direction at level surface is {acc_z_p}")
-print(f"\nGyro Value in Z direction at level surface is {gyr_z_p}")
 print(f"\n----------------------------------------------------------------------------")
 print(f"----------------------------------------------------------------------------")
 
@@ -38,10 +44,8 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 acc_x_n = MPU.getRawValues().acc_x
-gyr_x_n = MPU.getRawValues().gyr_x
 print(f"\n----------------------------------------------------------------------------")
 print(f"\nAcceleration in X direction when on right side is {acc_x_n}")
-print(f"\nGyro Value in X direction when on right side is {gyr_x_n}")
 print(f"\n----------------------------------------------------------------------------")
 print(f"----------------------------------------------------------------------------")
 
@@ -54,10 +58,8 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 acc_x_p = MPU.getRawValues().acc_x
-gyr_x_p = MPU.getRawValues().gyr_x
 print(f"\n----------------------------------------------------------------------------")
 print(f"\nAcceleration in X direction when on left side is {acc_x_p}")
-print(f"\nGyro Value in X direction when on left side is {gyr_x_p}")
 print(f"\n----------------------------------------------------------------------------")
 print(f"----------------------------------------------------------------------------")
 
@@ -71,10 +73,8 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 acc_y_n = MPU.getRawValues().acc_y
-gyr_y_n = MPU.getRawValues().gyr_y
 print(f"\n----------------------------------------------------------------------------")
 print(f"\nAcceleration in Y direction when nose down is {acc_y_n}")
-print(f"\nGyro Value in Y direction when nose down is {gyr_y_n}")
 print(f"\n----------------------------------------------------------------------------")
 print(f"----------------------------------------------------------------------------")
 
@@ -88,10 +88,8 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 acc_y_p = MPU.getRawValues().acc_y
-gyr_y_p = MPU.getRawValues().gyr_y
 print(f"\n----------------------------------------------------------------------------")
 print(f"\nAcceleration in Y direction when nose up is {acc_y_p}")
-print(f"\nGyro Value in Y direction when nose up is {gyr_y_p}")
 print(f"\n----------------------------------------------------------------------------")
 print(f"----------------------------------------------------------------------------")
 
@@ -105,10 +103,8 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 acc_z_n = MPU.getRawValues().acc_z
-gyr_z_n = MPU.getRawValues().gyr_z
 print(f"\n----------------------------------------------------------------------------")
 print(f"\nAcceleration in Z direction on its back is {acc_z_n}")
-print(f"\nGyro Value in Z direction on its back is {gyr_z_n}")
 print(f"\n----------------------------------------------------------------------------")
 print(f"----------------------------------------------------------------------------")
 
