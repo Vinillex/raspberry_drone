@@ -1,12 +1,18 @@
-from matplotlib import pyplot as plt
-cc
-
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+import sys
+import os
+
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '../..'))
+sys.path.append(parent_dir)
+
+from mpu import MPU
+
 # Parameters
 x_len = 200         # Number of points to display
-y_range = [-15, 15]  # Range of possible Y values to display
+y_range = [-2, 2]  # Range of possible Y values to display
 
 # Create figure for plotting
 fig = plt.figure()
@@ -25,12 +31,10 @@ plt.ylabel('Acceleration (m/s)')
 
 # This function is called periodically from FuncAnimation
 def animate(i, ys):
-
-    # Read temperature (Celsius) from TMP102
-    temp_c = MPU.getCalibratedValues().acc_x
+    acc_z = MPU.getCalibratedValues().acc_z
 
     # Add y to list
-    ys.append(temp_c)
+    ys.append(acc_z)
 
     # Limit y list to set number of items
     ys = ys[-x_len:]

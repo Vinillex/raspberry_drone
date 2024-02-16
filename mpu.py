@@ -4,12 +4,12 @@ import time
 
 
 mpu = mpu6050(0x68)
-acc_x_multiplier = 1.006608331605159
-acc_y_multiplier = 1.031960512227377
-acc_z_multiplier = 1.040609324139378
-acc_x_offset = -0.21087704213241665
-acc_y_offset = 0.29030978466188095
-acc_z_offset = 0.5817485714285713
+acc_x_multiplier = 0.9898339843749999
+acc_y_multiplier = 0.9995483398437499
+acc_z_multiplier = 1.00903076171875
+acc_x_offset = -0.005328776041666691
+acc_y_offset = -0.027025146484374967
+acc_z_offset = -0.06608642578124997
 gyr_x_offset = 1.4427480916030535
 gyr_y_offset = -0.7709923664122138
 gyr_z_offset = 1.1412213740458017
@@ -45,11 +45,3 @@ class MPU:
         gyr_z = gyrRaw['z'] + gyr_z_offset,
         )
         return inv
-
-    
-    
-
-    
-# while True:
-#     MPU.getRawValues()
-#     time.sleep(1)
