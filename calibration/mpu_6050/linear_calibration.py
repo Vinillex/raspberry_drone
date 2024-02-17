@@ -118,7 +118,8 @@ def linear_calibration(calibration_time=5, axis=2):
     # now I just utilize the equation for m and b in least sqaures theory
     m = (num_of_points * x_times_y_sum - (x_sum * y_sum)) / ((num_of_points * x_squared_sum) - (x_sum)**2)
     b = (y_sum - (m * x_sum)) / num_of_points
-    
+    print(str(num_of_points))
     return m, b
+
 
 print(linear_calibration())

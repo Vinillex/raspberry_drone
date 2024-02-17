@@ -8,8 +8,21 @@ sys.path.append(parent_dir)
 
 from mpu import MPU 
 
-n = 50 #No of iteration in each orientation
-t = 1 #Orientation Duration
+n = 50 # No of iteration in each orientation
+N = 0 # Total no of iterations
+t = 1 # Orientation Duration
+
+sum_product_z = 0
+sum_actual_z = 0
+sum_squared_z = 0
+
+sum_product_x = 0
+sum_actual_x = 0
+sum_squared_x = 0
+
+sum_product_y = 0
+sum_actual_y = 0
+sum_squared_y = 0
 
 
 print(f"\nLet's start calibration of accelerometer")
@@ -23,26 +36,33 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 
-acc_z_p = 0
-acc_x_z_p = 0
-acc_y_z_p = 0
 
 for i in range(n):
-    acc_z_p = acc_z_p + MPU.getRawValues().acc_z
 
-    acc_x_z_p = acc_x_z_p + MPU.getRawValues().acc_x
-    acc_y_z_p = acc_y_z_p + MPU.getRawValues().acc_y
+    ## Summation for Z
+
+    sum_product_z += 1 * MPU.getRawValues().acc_z
+    sum_actual_z += MPU.getRawValues().acc_z
+    sum_squared_z += 1 ** 2
+
+    ## Summation for X
+
+    sum_product_x += 0 * MPU.getRawValues().acc_x
+    sum_actual_x += MPU.getRawValues().acc_x
+    sum_squared_x += 0 ** 2
+
+    ## Summation for Y
+
+    sum_product_y += 0 * MPU.getRawValues().acc_y
+    sum_actual_y += MPU.getRawValues().acc_y
+    sum_squared_y += 0 ** 2
+
+    N += 1
     sleep(t/n)
 
-acc_z_p = acc_z_p / n
-
-acc_x_z_p = acc_x_z_p / n
-acc_y_z_p = acc_y_z_p/n
 
 print(f"\n----------------------------------------------------------------------------")
-print(f"\nAcceleration in Z direction at level surface is {acc_z_p}")
 print(f"\n----------------------------------------------------------------------------")
-print(f"----------------------------------------------------------------------------")
 
 
 
@@ -54,27 +74,34 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 
-acc_x_n = 0
-
-acc_z_x_n = 0
-acc_y_x_n = 0
 
 for i in range(n):
-    acc_x_n = acc_x_n + MPU.getRawValues().acc_x
 
-    acc_z_x_n = acc_z_x_n + MPU.getRawValues().acc_z
-    acc_y_x_n = acc_y_x_n + MPU.getRawValues().acc_y
+    ## Summation for Z
+
+    sum_product_z += 0 * MPU.getRawValues().acc_z
+    sum_actual_z += MPU.getRawValues().acc_z
+    sum_squared_z += 0 ** 2
+
+    ## Summation for X
+
+    sum_product_x += -1 * MPU.getRawValues().acc_x
+    sum_actual_x += MPU.getRawValues().acc_x
+    sum_squared_x += 1 ** 2
+
+    ## Summation for Y
+
+    sum_product_y += 0 * MPU.getRawValues().acc_y
+    sum_actual_y += MPU.getRawValues().acc_y
+    sum_squared_y += 0 ** 2
+
+    N += 1
+
     sleep(t/n)
 
-acc_x_n = acc_x_n / n
-
-acc_z_x_n = acc_z_x_n / n
-acc_y_x_n = acc_y_x_n / n
 
 print(f"\n----------------------------------------------------------------------------")
-print(f"\nAcceleration in X direction when on right side is {acc_x_n}")
 print(f"\n----------------------------------------------------------------------------")
-print(f"----------------------------------------------------------------------------")
 
 
 
@@ -85,27 +112,34 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 
-acc_x_p = 0
-
-acc_z_x_p = 0
-acc_y_x_p = 0
 
 for i in range(n):
-    acc_x_p = acc_x_p + MPU.getRawValues().acc_x
 
-    acc_z_x_p = acc_z_x_p + MPU.getRawValues().acc_z
-    acc_y_x_p = acc_y_x_p + MPU.getRawValues().acc_y
+    ## Summation for Z
+
+    sum_product_z += 0 * MPU.getRawValues().acc_z
+    sum_actual_z += MPU.getRawValues().acc_z
+    sum_squared_z += 0 ** 2
+
+    ## Summation for X
+
+    sum_product_x += 1 * MPU.getRawValues().acc_x
+    sum_actual_x += MPU.getRawValues().acc_x
+    sum_squared_x += 1 ** 2
+
+    ## Summation for Y
+
+    sum_product_y += 0 * MPU.getRawValues().acc_y
+    sum_actual_y += MPU.getRawValues().acc_y
+    sum_squared_y += 0 ** 2
+
+    N += 1
+
     sleep(t/n)
 
-acc_x_p = acc_x_p / n
-
-acc_z_x_p = acc_z_x_p / n
-acc_y_x_p = acc_y_x_p / n
 
 print(f"\n----------------------------------------------------------------------------")
-print(f"\nAcceleration in X direction when on left side is {acc_x_p}")
 print(f"\n----------------------------------------------------------------------------")
-print(f"----------------------------------------------------------------------------")
 
 
 
@@ -117,27 +151,34 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 
-acc_y_n = 0
-
-acc_z_y_n = 0
-acc_x_y_n = 0
 
 for i in range(n):
-    acc_y_n = acc_y_n + MPU.getRawValues().acc_y
 
-    acc_z_y_n = acc_z_y_n + MPU.getRawValues().acc_z
-    acc_x_y_n  = acc_x_y_n  + MPU.getRawValues().acc_x
+    ## Summation for Z
+
+    sum_product_z += 0 * MPU.getRawValues().acc_z
+    sum_actual_z += MPU.getRawValues().acc_z
+    sum_squared_z += 0 ** 2
+
+    ## Summation for X
+
+    sum_product_x += 0 * MPU.getRawValues().acc_x
+    sum_actual_x += MPU.getRawValues().acc_x
+    sum_squared_x += 0 ** 2
+
+    ## Summation for Y
+
+    sum_product_y += -1 * MPU.getRawValues().acc_y
+    sum_actual_y += MPU.getRawValues().acc_y
+    sum_squared_y += 1 ** 2
+
+    N += 1
+
     sleep(t/n)
 
-acc_y_n = acc_y_n / n
-
-acc_z_y_n = acc_z_y_n / n
-acc_x_y_n = acc_x_y_n / n
 
 print(f"\n----------------------------------------------------------------------------")
-print(f"\nAcceleration in Y direction when nose down is {acc_y_n}")
 print(f"\n----------------------------------------------------------------------------")
-print(f"----------------------------------------------------------------------------")
 
 
 
@@ -150,27 +191,32 @@ if var.lower() != "y":
     exit()
 
 
-acc_y_p = 0
-
-acc_z_y_p = 0
-acc_x_y_p = 0
-
 for i in range(n):
-    acc_y_p = acc_y_p + MPU.getRawValues().acc_y
+    ## Summation for Z
 
-    acc_z_y_p = acc_z_y_p + MPU.getRawValues().acc_z
-    acc_x_y_p  = acc_x_y_p  + MPU.getRawValues().acc_x
+    sum_product_z += 0 * MPU.getRawValues().acc_z
+    sum_actual_z += MPU.getRawValues().acc_z
+    sum_squared_z += 0 ** 2
+
+    ## Summation for X
+
+    sum_product_x += 0 * MPU.getRawValues().acc_x
+    sum_actual_x += MPU.getRawValues().acc_x
+    sum_squared_x += 0 ** 2
+
+    ## Summation for Y
+
+    sum_product_y += 1 * MPU.getRawValues().acc_y
+    sum_actual_y += MPU.getRawValues().acc_y
+    sum_squared_y += 1 ** 2
+
+    N += 1
+
     sleep(t/n)
 
-acc_y_p = acc_y_p / n
-
-acc_z_y_p = acc_z_y_p / n
-acc_x_y_p = acc_x_y_p / n
 
 print(f"\n----------------------------------------------------------------------------")
-print(f"\nAcceleration in Y direction when nose up is {acc_y_p}")
 print(f"\n----------------------------------------------------------------------------")
-print(f"----------------------------------------------------------------------------")
 
 
 
@@ -182,49 +228,44 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 
-acc_z_n = 0
-acc_x_z_n = 0
-acc_y_z_n = 0
-
 for i in range(n):
-    acc_z_n = acc_z_n + MPU.getRawValues().acc_z
 
-    acc_x_z_n = acc_x_z_n + MPU.getRawValues().acc_x
-    acc_y_z_n = acc_y_z_n + MPU.getRawValues().acc_y
+    ## Summation for Z
+
+    sum_product_z += -1 * MPU.getRawValues().acc_z
+    sum_actual_z += MPU.getRawValues().acc_z
+    sum_squared_z += 1 ** 2
+
+    ## Summation for X
+
+    sum_product_x += 0 * MPU.getRawValues().acc_x
+    sum_actual_x += MPU.getRawValues().acc_x
+    sum_squared_x += 0 ** 2
+
+    ## Summation for Y
+
+    sum_product_y += 0 * MPU.getRawValues().acc_y
+    sum_actual_y += MPU.getRawValues().acc_y
+    sum_squared_y += 0 ** 2
+    N += 1
+
     sleep(t/n)
 
-acc_z_n = acc_z_n/n
-
-acc_x_z_n = acc_x_z_n/n
-acc_y_z_n = acc_y_z_n/n
 
 print(f"\n----------------------------------------------------------------------------")
-print(f"\nAcceleration in Z direction on its back is {acc_z_n}")
 print(f"\n----------------------------------------------------------------------------")
-print(f"----------------------------------------------------------------------------")
 
 
-# Calculation for z axis
-sum_actual_z = acc_z_n + acc_z_p + ((acc_y_z_n + acc_x_z_n + acc_y_z_p + acc_x_z_p)  / 4)
-sum_product_z = -acc_z_n + acc_z_p
+acc_z_multiplier = sum_product_z / sum_squared_z
+acc_z_offset =  sum_actual_z / N
 
-acc_z_multiplier = sum_product_z / 2
-acc_z_offset = sum_actual_z / 3
+acc_x_multiplier = sum_product_x / sum_squared_x
+acc_x_offset =  sum_actual_x / N
 
-#Calculation for y axis
-sum_actual_y = acc_y_n + acc_y_p + ((acc_z_y_n + acc_x_y_n + acc_z_y_p + acc_x_y_p)  / 4)
-sum_product_y = -acc_y_n + acc_y_p
+acc_y_multiplier = sum_product_y / sum_squared_y
+acc_y_offset =  sum_actual_y / N
 
-acc_y_multiplier = sum_product_y / 2
-acc_y_offset = sum_actual_y / 3
-
-#Calculation for x axis
-sum_actual_x = acc_x_n + acc_x_p + ((acc_z_x_n + acc_y_x_n + acc_z_x_p + acc_y_x_p)  / 4)
-sum_product_x = -acc_x_n + acc_x_p
-
-acc_x_multiplier = sum_product_x / 2
-acc_x_offset = sum_actual_x / 3
-
+print("N = " + str(N))
  
 print("acc_x_multiplier = " + str(acc_x_multiplier))
 print("acc_y_multiplier = " + str(acc_y_multiplier))
@@ -233,9 +274,4 @@ print("acc_z_multiplier = " + str(acc_z_multiplier))
 print("acc_x_offset = " + str(acc_x_offset))
 print("acc_y_offset = " + str(acc_y_offset))
 print("acc_z_offset = " + str(acc_z_offset))
-
-
-#print("gyr_x_offset = " + str(gyr_x_offset))
-#print("gyr_y_offset = " + str(gyr_y_offset))
-#print("gyr_z_offset = " + str(gyr_z_offset))
 

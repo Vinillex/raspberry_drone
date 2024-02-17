@@ -1,15 +1,15 @@
 from mpu6050 import mpu6050
 from inv import INV
-import time
-
 
 mpu = mpu6050(0x68)
-acc_x_multiplier = 0.9898339843749999
-acc_y_multiplier = 0.9995483398437499
-acc_z_multiplier = 1.00903076171875
-acc_x_offset = -0.005328776041666691
-acc_y_offset = -0.027025146484374967
-acc_z_offset = -0.06608642578124997
+
+acc_x_multiplier = 0.98911376953125
+acc_y_multiplier = 1.00009765625
+acc_z_multiplier = 1.01008544921875
+acc_x_offset = 0.0135498046875
+acc_y_offset = -0.019622395833333334
+acc_z_offset = -0.09076985677083334
+
 gyr_x_offset = 1.4427480916030535
 gyr_y_offset = -0.7709923664122138
 gyr_z_offset = 1.1412213740458017
