@@ -24,7 +24,6 @@ sum_product_y = 0
 sum_actual_y = 0
 sum_squared_y = 0
 
-
 print(f"\nLet's start calibration of accelerometer")
 sleep(3)
 
@@ -36,14 +35,13 @@ if var.lower() != "y":
     print(f"\nCalibration Ended")
     exit()
 
-
 for i in range(n):
 
     ## Summation for Z
 
     for i in range(2):
-        sum_product_z += 1 * MPU.getRawValues().acc_z
-        sum_actual_z += MPU.getRawValues().acc_z
+        sum_product_z += 1 * (1 - MPU.getRawValues().acc_z)
+        sum_actual_z += (1 - MPU.getRawValues().acc_z)
         sum_squared_z += 1 ** 2
         N += 1
         sleep(t/n)
@@ -51,14 +49,14 @@ for i in range(n):
 
     ## Summation for X
 
-    sum_product_x += 0 * MPU.getRawValues().acc_x
-    sum_actual_x += MPU.getRawValues().acc_x
+    sum_product_x += 0 * (0 - MPU.getRawValues().acc_x)
+    sum_actual_x += (0 - MPU.getRawValues().acc_x)
     sum_squared_x += 0 ** 2
 
     ## Summation for Y
 
-    sum_product_y += 0 * MPU.getRawValues().acc_y
-    sum_actual_y += MPU.getRawValues().acc_y
+    sum_product_y += 0 * (0 - MPU.getRawValues().acc_y)
+    sum_actual_y += (0 - MPU.getRawValues().acc_y)
     sum_squared_y += 0 ** 2
 
     sleep(t/n)
@@ -66,9 +64,6 @@ for i in range(n):
 
 print(f"\n----------------------------------------------------------------------------")
 print(f"\n----------------------------------------------------------------------------")
-
-
-
 
 ## Get acc and gyro data for negative x
 print(f"\nKeep your drone on right side")
@@ -82,23 +77,23 @@ for i in range(n):
 
     ## Summation for Z
 
-    sum_product_z += 0 * MPU.getRawValues().acc_z
-    sum_actual_z += MPU.getRawValues().acc_z
+    sum_product_z += 0 * (0 - MPU.getRawValues().acc_z)
+    sum_actual_z += (0 - MPU.getRawValues().acc_z)
     sum_squared_z += 0 ** 2
 
     ## Summation for X
 
     for i in range(2):
-        sum_product_x += -1 * MPU.getRawValues().acc_x
-        sum_actual_x += MPU.getRawValues().acc_x
+        sum_product_x += -1 * (-1 - MPU.getRawValues().acc_x)
+        sum_actual_x += (-1 - MPU.getRawValues().acc_x)
         sum_squared_x += 1 ** 2
         N += 1
         sleep(t/n)
 
     ## Summation for Y
 
-    sum_product_y += 0 * MPU.getRawValues().acc_y
-    sum_actual_y += MPU.getRawValues().acc_y
+    sum_product_y += 0 * (0 - MPU.getRawValues().acc_y)
+    sum_actual_y += (0 - MPU.getRawValues().acc_y)
     sum_squared_y += 0 ** 2
 
     sleep(t/n)
@@ -121,15 +116,15 @@ for i in range(n):
 
     ## Summation for Z
 
-    sum_product_z += 0 * MPU.getRawValues().acc_z
-    sum_actual_z += MPU.getRawValues().acc_z
+    sum_product_z += 0 * (0 - MPU.getRawValues().acc_z)
+    sum_actual_z += (0 - MPU.getRawValues().acc_z)
     sum_squared_z += 0 ** 2
 
     ## Summation for X
 
     for i in range(2):
-        sum_product_x += 1 * MPU.getRawValues().acc_x
-        sum_actual_x += MPU.getRawValues().acc_x
+        sum_product_x += 1 *(1 - MPU.getRawValues().acc_x)
+        sum_actual_x += (1 - MPU.getRawValues().acc_x)
         sum_squared_x += 1 ** 2
         N += 1
         sleep(t/n)
@@ -137,8 +132,8 @@ for i in range(n):
 
     ## Summation for Y
 
-    sum_product_y += 0 * MPU.getRawValues().acc_y
-    sum_actual_y += MPU.getRawValues().acc_y
+    sum_product_y += 0 * (0 - MPU.getRawValues().acc_y)
+    sum_actual_y += (0 - MPU.getRawValues().acc_y)
     sum_squared_y += 0 ** 2
 
 
@@ -163,21 +158,21 @@ for i in range(n):
 
     ## Summation for Z
 
-    sum_product_z += 0 * MPU.getRawValues().acc_z
-    sum_actual_z += MPU.getRawValues().acc_z
+    sum_product_z += 0 * (0 - MPU.getRawValues().acc_z)
+    sum_actual_z += (0 - MPU.getRawValues().acc_z)
     sum_squared_z += 0 ** 2
 
     ## Summation for X
 
-    sum_product_x += 0 * MPU.getRawValues().acc_x
-    sum_actual_x += MPU.getRawValues().acc_x
+    sum_product_x += 0 * (0 - MPU.getRawValues().acc_x)
+    sum_actual_x += (0 - MPU.getRawValues().acc_x)
     sum_squared_x += 0 ** 2
 
     ## Summation for Y
 
     for i in range(2):
-        sum_product_y += -1 * MPU.getRawValues().acc_y
-        sum_actual_y += MPU.getRawValues().acc_y
+        sum_product_y += -1 * (-1 - MPU.getRawValues().acc_y)
+        sum_actual_y += (-1 - MPU.getRawValues().acc_y)
         sum_squared_y += 1 ** 2
         N += 1
         sleep(t/n)
@@ -203,21 +198,21 @@ if var.lower() != "y":
 for i in range(n):
     ## Summation for Z
 
-    sum_product_z += 0 * MPU.getRawValues().acc_z
-    sum_actual_z += MPU.getRawValues().acc_z
+    sum_product_z += 0 * (0 - MPU.getRawValues().acc_z)
+    sum_actual_z += (0 - MPU.getRawValues().acc_z)
     sum_squared_z += 0 ** 2
 
     ## Summation for X
 
-    sum_product_x += 0 * MPU.getRawValues().acc_x
-    sum_actual_x += MPU.getRawValues().acc_x
+    sum_product_x += 0 * (0 - MPU.getRawValues().acc_x)
+    sum_actual_x += (0 - MPU.getRawValues().acc_x)
     sum_squared_x += 0 ** 2
 
     ## Summation for Y
 
     for i in range(2):
-        sum_product_y += 1 * MPU.getRawValues().acc_y
-        sum_actual_y += MPU.getRawValues().acc_y
+        sum_product_y += 1 * (1 - MPU.getRawValues().acc_y)
+        sum_actual_y += (1 - MPU.getRawValues().acc_y)
         sum_squared_y += 1 ** 2
         N += 1
         sleep(t/n)
@@ -244,22 +239,22 @@ for i in range(n):
     ## Summation for Z
 
     for i in range(2):
-        sum_product_z += -1 * MPU.getRawValues().acc_z
-        sum_actual_z += MPU.getRawValues().acc_z
+        sum_product_z += -1 * (-1 - MPU.getRawValues().acc_z)
+        sum_actual_z += (-1 - MPU.getRawValues().acc_z)
         sum_squared_z += 1 ** 2
         N += 1
         sleep(t/n)
 
     ## Summation for X
 
-    sum_product_x += 0 * MPU.getRawValues().acc_x
-    sum_actual_x += MPU.getRawValues().acc_x
+    sum_product_x += 0 * (0 - MPU.getRawValues().acc_x)
+    sum_actual_x += (0 - MPU.getRawValues().acc_x)
     sum_squared_x += 0 ** 2
 
     ## Summation for Y
 
-    sum_product_y += 0 * MPU.getRawValues().acc_y
-    sum_actual_y += MPU.getRawValues().acc_y
+    sum_product_y += 0 * (0 - MPU.getRawValues().acc_y)
+    sum_actual_y += (0 - MPU.getRawValues().acc_y)
     sum_squared_y += 0 ** 2
 
     sleep(t/n)
