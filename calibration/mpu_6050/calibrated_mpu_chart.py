@@ -42,9 +42,9 @@ def animate(i, z , x, y):
     #acc_x = MPU.getCalibratedValues().acc_x
     #acc_y = MPU.getCalibratedValues().acc_y
 
-    acc_z = MPU.getRawValues().acc_z
-    acc_x = MPU.getRawValues().acc_x
-    acc_y = MPU.getRawValues().acc_y
+    acc_z = MPU.getCalibratedValues().acc_z
+    acc_x = MPU.getCalibratedValues().acc_x
+    acc_y = MPU.getCalibratedValues().acc_y
 
     # Add y to list
     z.append(acc_z)
