@@ -46,6 +46,7 @@ def animate(i, z , x, y):
     acc_x = MPU.getCalibratedValues().acc_x
     acc_y = MPU.getCalibratedValues().acc_y
 
+
     # Add y to list
     z.append(acc_z)
     x.append(acc_x)

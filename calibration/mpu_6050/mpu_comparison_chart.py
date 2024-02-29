@@ -40,6 +40,11 @@ def animate(i, r , c):
     acc_r = MPU.getRawValues().acc_z
     acc_c = MPU.getCalibratedValues().acc_z
 
+    #if(acc_c > 0):
+     #   acc_c = acc_c ** (1./3.)
+    #else:
+     #   acc_c = -((-acc_c) ** (1./3.))
+
     # Add y to list
     r.append(acc_r)
     c.append(acc_c)
