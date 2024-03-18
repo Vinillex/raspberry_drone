@@ -1,13 +1,6 @@
 from time import sleep
-import numpy as np 
-import sys
-import os
-
-current_dir = os.path.dirname(__file__)
-parent_dir = os.path.abspath(os.path.join(current_dir, '../..'))
-sys.path.append(parent_dir)
-
-from mpu import MPU 
+import numpy as np
+import mpu_6050
 
 n = 50 # No of iteration in each orientation
 N = 0 # Total no of iterations
@@ -67,7 +60,7 @@ if var.lower() != "y":
 for i in range(n):
 
     #Z direction
-    z = MPU.getRawValues().acc_z
+    z = mpu_6050.raw_acc()["z"]
     z_offset = 1 - z
 
     z_o_1 += z_offset
@@ -82,7 +75,7 @@ for i in range(n):
     z_2 += z ** 2
     z_1 += z
     #X direction
-    x = MPU.getRawValues().acc_x
+    x = mpu_6050.raw_acc()["x"]
     x_offset = 0 - x
 
     x_o_1 += x_offset
@@ -97,7 +90,7 @@ for i in range(n):
     x_1 += x
 
     #Y direction
-    y = MPU.getRawValues().acc_y
+    y = mpu_6050.raw_acc()["y"]
     y_offset = 0 - y
 
     y_o_1 += y_offset
@@ -125,7 +118,7 @@ if var.lower() != "y":
 for i in range(n):
 
     #Z direction
-    z = MPU.getRawValues().acc_z
+    z = mpu_6050.raw_acc()["z"]
     z_offset = 0 - z
 
     z_o_1 += z_offset
@@ -141,7 +134,7 @@ for i in range(n):
     z_1 += z
 
     #X direction
-    x = MPU.getRawValues().acc_x
+    x = mpu_6050.raw_acc()["x"]
     x_offset = -1 - x
 
     x_o_1 += x_offset
@@ -156,7 +149,7 @@ for i in range(n):
     x_1 += x
 
     #Y direction
-    y = MPU.getRawValues().acc_y
+    y = mpu_6050.raw_acc()["y"]
     y_offset = 0 - y
 
     y_o_1 += y_offset
@@ -184,7 +177,7 @@ if var.lower() != "y":
 for i in range(n):
 
     #Z direction
-    z = MPU.getRawValues().acc_z
+    z = mpu_6050.raw_acc()["z"]
     z_offset = 0 - z
 
     z_o_1 += z_offset
@@ -200,7 +193,7 @@ for i in range(n):
     z_1 += z
 
     #X direction
-    x = MPU.getRawValues().acc_x
+    x = mpu_6050.raw_acc()["x"]
     x_offset = 1 - x
 
     x_o_1 += x_offset
@@ -215,7 +208,7 @@ for i in range(n):
     x_1 += x
 
     #Y direction
-    y = MPU.getRawValues().acc_y
+    y = mpu_6050.raw_acc()["y"]
     y_offset = 0 - y
 
     y_o_1 += y_offset
@@ -243,7 +236,7 @@ if var.lower() != "y":
 for i in range(n):
 
     #Z direction
-    z = MPU.getRawValues().acc_z
+    z = mpu_6050.raw_acc()["z"]
     z_offset = 0 - z
 
     z_o_1 += z_offset
@@ -258,7 +251,7 @@ for i in range(n):
     z_2 += z ** 2
     z_1 += z
     #X direction
-    x = MPU.getRawValues().acc_x
+    x = mpu_6050.raw_acc()["x"]
     x_offset = 0 - x
 
     x_o_1 += x_offset
@@ -273,7 +266,7 @@ for i in range(n):
     x_1 += x
 
     #Y direction
-    y = MPU.getRawValues().acc_y
+    y = mpu_6050.raw_acc()["y"]
     y_offset = -1 - y
 
     y_o_1 += y_offset
@@ -301,7 +294,7 @@ if var.lower() != "y":
 for i in range(n):
 
     #Z direction
-    z = MPU.getRawValues().acc_z
+    z = mpu_6050.raw_acc()["z"]
     z_offset = 0 - z
 
     z_o_1 += z_offset
@@ -317,7 +310,7 @@ for i in range(n):
     z_1 += z
 
     #X direction
-    x = MPU.getRawValues().acc_x
+    x = mpu_6050.raw_acc()["x"]
     x_offset = 0 - x
 
     x_o_1 += x_offset
@@ -332,7 +325,7 @@ for i in range(n):
     x_1 += x
 
     #Y direction
-    y = MPU.getRawValues().acc_y
+    y = mpu_6050.raw_acc()["y"]
     y_offset = 1 - y
 
     y_o_1 += y_offset
@@ -360,7 +353,7 @@ if var.lower() != "y":
 for i in range(n):
 
     #Z direction
-    z = MPU.getRawValues().acc_z
+    z = mpu_6050.raw_acc()["z"]
     z_offset = -1 - z
 
     z_o_1 += z_offset
@@ -376,7 +369,7 @@ for i in range(n):
     z_1 += z
 
     #X direction
-    x = MPU.getRawValues().acc_x
+    x = mpu_6050.raw_acc()["x"]
     x_offset = 0 - x
 
     x_o_1 += x_offset
@@ -391,7 +384,7 @@ for i in range(n):
     x_1 += x
 
     #Y direction
-    y = MPU.getRawValues().acc_y
+    y = mpu_6050.raw_acc()["y"]
     y_offset = 0 - y
 
     y_o_1 += y_offset
